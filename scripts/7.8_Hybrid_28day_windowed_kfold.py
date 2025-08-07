@@ -6,13 +6,13 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay, roc_curve, auc
 import sys
-import os
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout, Masking, BatchNormalization, Conv1D, MaxPooling1D
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras import regularizers  # L2 regularization
 
 # --- Config ---
 BASE_DIR    = Path(r"C:\Users\Nirav Bavadiya\Documents\study\Masters\Thesis\My work\data\3_data_pruned")
@@ -25,12 +25,29 @@ SENSOR_FILES = ['location.csv', 'screen.csv', 'sleep.csv', 'steps.csv']
 WINDOW_SIZE  = 28
 DATASETS     = [d for d in BASE_DIR.iterdir() if d.is_dir()]
 
+# --- Utility to save graphs ---
+def get_next_folder_name(prefix):
+
+    existing_dirs = [p for p in GRAPH_DIR.iterdir() if p.is_dir() and p.name.startswith(prefix)]
+    nums = [
+        int(p.name.split("_")[-1])
+        for p in existing_dirs
+        if "_" in p.name and p.name.split("_")[-1].isdigit()
+    ]
+    next_num = max(nums, default=0) + 1
+    return GRAPH_DIR / f"{prefix}_{next_num}"
+
+RUN_DIR = get_next_folder_name('run')
+RUN_DIR.mkdir(parents=True, exist_ok=True)
+
+log_file_path = RUN_DIR / "run_output_log.txt"
+sys.stdout = open(log_file_path, "w", encoding="utf-8")
+
 def get_next_filename(prefix, ext="png"):
     existing = list(GRAPH_DIR.glob(f"{prefix}_*.{ext}"))
-    nums = [int(p.stem.split("_")[-1]) for p in existing 
-            if p.stem.split("_")[-1].isdigit()]
+    nums = [int(p.stem.split("_")[-1]) for p in existing if p.stem.split("_")[-1].isdigit()]
     next_num = max(nums, default=0) + 1
-    return GRAPH_DIR / f"{prefix}_{next_num}.{ext}"
+    return RUN_DIR / f"{prefix}_{next_num}.{ext}"
 
 def generate_fixed_windows(sensor_df, survey_df, window_size=28):
     windows, labels = [], []
@@ -128,17 +145,13 @@ def build_model(input_shape, output_dim):
         BatchNormalization(),
         Conv1D(64, 3, activation='relu', padding='same'),
         MaxPooling1D(2),
-        LSTM(64, return_sequences=True, dropout=0.3),
-        LSTM(32, dropout=0.3),
-        Dense(32, activation='relu'),
+        LSTM(64, return_sequences=True, dropout=0.3, recurrent_dropout=0.3), #, recurrent_dropout=0.3
+        LSTM(32, dropout=0.3, recurrent_dropout=0.3),
+        Dense(32, activation='relu', kernel_regularizer=regularizers.l2(0.0001)),
         Dropout(0.3),
         Dense(output_dim, activation='softmax')
     ])
-    model.compile(
-        optimizer=Adam(0.001, clipnorm=1.0),
-        loss="categorical_crossentropy",
-        metrics=["accuracy"]
-    )
+    model.compile(optimizer=Adam(0.001, clipnorm=1.0), loss="categorical_crossentropy", metrics=["accuracy"])
     return model
 
 # --- Stratified K-Fold CV ---
@@ -162,6 +175,7 @@ for fold, (train_idx, val_idx) in enumerate(
         (X_tr.shape[1], X_tr.shape[2]),
         y_tr.shape[1]
     )
+    model.save(RUN_DIR / f"fold{fold}_model.keras")
 
     # train
     history = model.fit(

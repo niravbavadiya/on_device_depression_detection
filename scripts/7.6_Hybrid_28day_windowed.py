@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report, confusion_matrix, ConfusionMa
 import sys
 
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Dropout, Masking, BatchNormalization, Conv1D, MaxPooling1D
+from tensorflow.keras.layers import LSTM, Dense, Dropout, BatchNormalization, Conv1D, MaxPooling1D
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.optimizers import Adam
@@ -154,8 +154,7 @@ y_test = to_categorical(np.array(y_test_all), num_classes=y_train.shape[1])
 # --- CNN–LSTM hybrid model ---
 def build_model(input_shape, output_dim):
     model = Sequential([
-        Masking(mask_value=0.0, input_shape=input_shape),
-        BatchNormalization(),
+        BatchNormalization(input_shape=input_shape),
         Conv1D(64, kernel_size=3, activation='relu', padding='same'),
         MaxPooling1D(pool_size=2),
         LSTM(64, return_sequences=True, dropout=0.3, recurrent_dropout=0.3),

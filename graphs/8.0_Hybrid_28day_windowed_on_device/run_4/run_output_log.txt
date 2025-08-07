@@ -1,0 +1,114 @@
+
+📦 Processing dataset: INS-W-sample_1
+
+📦 Processing dataset: INS-W-sample_2
+
+📦 Processing dataset: INS-W-sample_3
+
+📦 Processing dataset: INS-W-sample_4
+
+Data shapes → X_train: (88, 28, 521), X_test: (32, 28, 521)
+
+--- Training with Unstructured Pruning ---
+Epoch 1/50
+
+ 1/22 [>.............................] - ETA: 1:24 - loss: 0.6712 - accuracy: 0.2500
+ 6/22 [=======>......................] - ETA: 0s - loss: 0.6822 - accuracy: 0.5417  
+12/22 [===============>..............] - ETA: 0s - loss: 0.6727 - accuracy: 0.6042
+18/22 [=======================>......] - ETA: 0s - loss: 0.6912 - accuracy: 0.5833
+22/22 [==============================] - 5s 28ms/step - loss: 0.6912 - accuracy: 0.5682 - val_loss: 0.6496 - val_accuracy: 0.7188 - lr: 0.0010
+Epoch 2/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.6380 - accuracy: 0.7500
+ 7/22 [========>.....................] - ETA: 0s - loss: 0.5750 - accuracy: 0.7500
+14/22 [==================>...........] - ETA: 0s - loss: 0.5897 - accuracy: 0.8036
+20/22 [==========================>...] - ETA: 0s - loss: 0.5701 - accuracy: 0.7625
+22/22 [==============================] - 0s 9ms/step - loss: 0.5696 - accuracy: 0.7500 - val_loss: 0.5313 - val_accuracy: 0.8125 - lr: 0.0010
+Epoch 3/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.2455 - accuracy: 1.0000
+ 8/22 [=========>....................] - ETA: 0s - loss: 0.4401 - accuracy: 0.9375
+15/22 [===================>..........] - ETA: 0s - loss: 0.4446 - accuracy: 0.8667
+21/22 [===========================>..] - ETA: 0s - loss: 0.4574 - accuracy: 0.8452
+22/22 [==============================] - 0s 9ms/step - loss: 0.4694 - accuracy: 0.8409 - val_loss: 0.5806 - val_accuracy: 0.6562 - lr: 0.0010
+Epoch 4/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.1918 - accuracy: 1.0000
+ 8/22 [=========>....................] - ETA: 0s - loss: 0.3998 - accuracy: 0.8438
+16/22 [====================>.........] - ETA: 0s - loss: 0.4017 - accuracy: 0.8125
+22/22 [==============================] - 0s 10ms/step - loss: 0.3313 - accuracy: 0.8636 - val_loss: 0.6078 - val_accuracy: 0.6875 - lr: 0.0010
+Epoch 5/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.3466 - accuracy: 1.0000
+ 7/22 [========>.....................] - ETA: 0s - loss: 0.3843 - accuracy: 0.8929
+13/22 [================>.............] - ETA: 0s - loss: 0.3184 - accuracy: 0.8846
+20/22 [==========================>...] - ETA: 0s - loss: 0.2809 - accuracy: 0.9125
+22/22 [==============================] - 0s 10ms/step - loss: 0.2760 - accuracy: 0.9205 - val_loss: 0.6762 - val_accuracy: 0.7188 - lr: 0.0010
+Epoch 6/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.0660 - accuracy: 1.0000
+ 7/22 [========>.....................] - ETA: 0s - loss: 0.1579 - accuracy: 0.9643
+14/22 [==================>...........] - ETA: 0s - loss: 0.2273 - accuracy: 0.9107
+22/22 [==============================] - ETA: 0s - loss: 0.2784 - accuracy: 0.8977
+22/22 [==============================] - 0s 10ms/step - loss: 0.2784 - accuracy: 0.8977 - val_loss: 0.5766 - val_accuracy: 0.7500 - lr: 0.0010
+Epoch 7/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.0543 - accuracy: 1.0000
+ 8/22 [=========>....................] - ETA: 0s - loss: 0.2742 - accuracy: 0.9375
+15/22 [===================>..........] - ETA: 0s - loss: 0.1997 - accuracy: 0.9667
+22/22 [==============================] - ETA: 0s - loss: 0.1724 - accuracy: 0.9659
+22/22 [==============================] - 0s 9ms/step - loss: 0.1724 - accuracy: 0.9659 - val_loss: 0.5888 - val_accuracy: 0.7188 - lr: 1.0000e-04
+Epoch 8/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.0885 - accuracy: 1.0000
+ 7/22 [========>.....................] - ETA: 0s - loss: 0.1067 - accuracy: 1.0000
+15/22 [===================>..........] - ETA: 0s - loss: 0.1218 - accuracy: 0.9667
+22/22 [==============================] - ETA: 0s - loss: 0.1596 - accuracy: 0.9545
+22/22 [==============================] - 0s 10ms/step - loss: 0.1596 - accuracy: 0.9545 - val_loss: 0.5949 - val_accuracy: 0.7500 - lr: 1.0000e-04
+Epoch 9/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.2643 - accuracy: 1.0000
+ 6/22 [=======>......................] - ETA: 0s - loss: 0.2036 - accuracy: 0.9583
+13/22 [================>.............] - ETA: 0s - loss: 0.1808 - accuracy: 0.9423
+21/22 [===========================>..] - ETA: 0s - loss: 0.1912 - accuracy: 0.9405
+22/22 [==============================] - 0s 10ms/step - loss: 0.1851 - accuracy: 0.9432 - val_loss: 0.6157 - val_accuracy: 0.7188 - lr: 1.0000e-04
+Epoch 10/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.0841 - accuracy: 1.0000
+ 6/22 [=======>......................] - ETA: 0s - loss: 0.3208 - accuracy: 0.9167
+13/22 [================>.............] - ETA: 0s - loss: 0.2009 - accuracy: 0.9615
+20/22 [==========================>...] - ETA: 0s - loss: 0.1887 - accuracy: 0.9750
+22/22 [==============================] - 0s 10ms/step - loss: 0.2042 - accuracy: 0.9659 - val_loss: 0.5374 - val_accuracy: 0.8125 - lr: 1.0000e-04
+Epoch 11/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.0247 - accuracy: 1.0000
+ 7/22 [========>.....................] - ETA: 0s - loss: 0.1221 - accuracy: 0.9643
+15/22 [===================>..........] - ETA: 0s - loss: 0.1161 - accuracy: 0.9833
+22/22 [==============================] - ETA: 0s - loss: 0.1606 - accuracy: 0.9659
+22/22 [==============================] - 0s 10ms/step - loss: 0.1606 - accuracy: 0.9659 - val_loss: 0.5402 - val_accuracy: 0.8125 - lr: 1.0000e-05
+Epoch 12/50
+
+ 1/22 [>.............................] - ETA: 0s - loss: 0.1473 - accuracy: 1.0000
+ 7/22 [========>.....................] - ETA: 0s - loss: 0.1585 - accuracy: 0.9643
+14/22 [==================>...........] - ETA: 0s - loss: 0.1390 - accuracy: 0.9821
+20/22 [==========================>...] - ETA: 0s - loss: 0.1463 - accuracy: 0.9750
+22/22 [==============================] - 0s 10ms/step - loss: 0.1610 - accuracy: 0.9659 - val_loss: 0.5434 - val_accuracy: 0.7812 - lr: 1.0000e-05
+✅ Pruning wrappers stripped and Keras model saved.
+
+--- Converting to TensorFlow Lite Runtime (LiteRT) ---
+✅ LiteRT model saved to: C:\Users\Nirav Bavadiya\Documents\study\Masters\Thesis\My work\graphs\8.0_Hybrid_28day_windowed_on_device\run_4\model_litert.tflite
+
+🧪 Final Model Evaluation
+              precision    recall  f1-score   support
+
+       False       0.81      0.89      0.85        19
+        True       0.82      0.69      0.75        13
+
+    accuracy                           0.81        32
+   macro avg       0.81      0.79      0.80        32
+weighted avg       0.81      0.81      0.81        32
+
+
+📊 Generalization Gap → Train: 0.886, Test: 0.812
+
+--- Script Complete ---

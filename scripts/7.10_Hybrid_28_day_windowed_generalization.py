@@ -163,7 +163,7 @@ def build_model(input_shape, output_dim):
         LSTM(32, dropout=0.3, recurrent_dropout=0.2),
 
         # 🌱 L2 regularization to control weight magnitude
-        Dense(32, activation="relu", kernel_regularizer=regularizers.l2(0.0001)),
+        Dense(32, activation="relu", kernel_regularizer=regularizers.l2(0.00001)),
         Dropout(0.3),
 
         Dense(output_dim, activation="softmax")
