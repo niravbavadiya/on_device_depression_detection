@@ -1,0 +1,13 @@
+# Minimal Snakemake wrapper — delegates to RAPIDS’ internal rules.
+# The ./rapids CLI uses this profile’s Snakefile + config.yaml.
+configfile: "profiles/globem/config.yaml"
+
+# These target rules are provided by RAPIDS and referenced by its CLI.
+# By listing them, we ensure the full extraction + merge runs:
+rule all:
+    input:
+        # consolidated all-participants CSV (RAPIDS naming)
+        expand("results/{name}.csv", name=["all_participants_features"]),
+        # common per-sensor merged outputs (names may vary slightly by RAPIDS ver)
+        # RAPIDS will materialize available ones; non-existing are ignored.
+        # We'll pick them up in run_rapids.sh.

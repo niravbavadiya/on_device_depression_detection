@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  rapids:
+    image: moshiresearch/rapids:latest
+    container_name: rapids_globem
+    tty: true
+    stdin_open: true
+    working_dir: /rapids
+    volumes:
+      - "C:/Users/Nirav Bavadiya/Documents/study/Masters/Thesis/rapids_standalone:/rapids"
+    ports:
+      - "8888:8888"
