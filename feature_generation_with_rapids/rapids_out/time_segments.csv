@@ -1,0 +1,8 @@
+label,start_time,length,repeats_on,repeats_value
+allday,00:00:00,24H,every_day,0
+morning,05:00:00,7H,every_day,0
+afternoon,12:00:00,5H,every_day,0
+evening,17:00:00,5H,every_day,0
+night,22:00:00,7H,every_day,0
+wkdy,00:00:00,5D,wday,1
+wkend,00:00:00,2D,wday,6

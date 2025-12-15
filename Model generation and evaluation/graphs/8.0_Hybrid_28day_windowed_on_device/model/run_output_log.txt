@@ -1,0 +1,12 @@
+🧪 Final Model Evaluation
+              precision    recall  f1-score   support
+
+       False       0.81      0.89      0.85        19
+        True       0.82      0.69      0.75        13
+
+    accuracy                           0.81        32
+   macro avg       0.81      0.79      0.80        32
+weighted avg       0.81      0.81      0.81        32
+
+
+📊 Generalization Gap → Train: 0.886, Test: 0.812

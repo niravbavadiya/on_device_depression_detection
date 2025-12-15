@@ -1,0 +1,14 @@
+🔍 Cross-Validation Results per Fold:
+      accuracy  f1_weighted   roc_auc
+fold                                 
+1     0.750000     0.738889  0.762238
+2     0.875000     0.873866  0.885714
+3     0.666667     0.668998  0.771429
+4     0.791667     0.789776  0.835714
+5     0.583333     0.586247  0.635714
+
+✨ Mean Scores Across Folds (with regularization):
+accuracy       0.733333
+f1_weighted    0.731555
+roc_auc        0.778162
+dtype: float64

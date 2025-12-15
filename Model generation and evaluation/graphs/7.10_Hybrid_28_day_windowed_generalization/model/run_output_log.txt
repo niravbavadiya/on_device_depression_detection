@@ -1,0 +1,12 @@
+🧪 Final Evaluation:
+              precision    recall  f1-score   support
+
+       False       0.83      0.88      0.86        17
+        True       0.83      0.77      0.80        13
+
+    accuracy                           0.83        30
+   macro avg       0.83      0.83      0.83        30
+weighted avg       0.83      0.83      0.83        30
+
+
+📊 Generalization Gap: Train Acc = 0.867 → Test Acc = 0.833

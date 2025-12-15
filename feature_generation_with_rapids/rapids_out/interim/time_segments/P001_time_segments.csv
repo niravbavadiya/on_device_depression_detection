@@ -1,0 +1,9 @@
+label,start_time,length,repeats_on,repeats_value,overlap_duration,overlap_id,original_label
+allday_RR0SS,00:00:00,24H,every_day,0,0D,0,allday
+allday_RR1SS,00:00:00,24H,every_day,0,1D,1,allday
+morning_RR0SS,05:00:00,7H,every_day,0,0D,0,morning
+afternoon_RR0SS,12:00:00,5H,every_day,0,0D,0,afternoon
+evening_RR0SS,17:00:00,5H,every_day,0,0D,0,evening
+night_RR0SS,22:00:00,7H,every_day,0,0D,0,night
+wkdy_RR0SS,00:00:00,5D,wday,1,0D,0,wkdy
+wkend_RR0SS,00:00:00,2D,wday,6,0D,0,wkend
